@@ -5,7 +5,7 @@ import java.net.URI
 
 
 class VK {
-    val APP_ID = 1111111
+    val APP_ID = 6200317
     val DISPLAY = "mobile"
     val REDIRECT_URI = "https://oauth.vk.com/blank.html"
     val PERMISSIONS = "groups,friends"

@@ -31,16 +31,17 @@ class TokenFrame : JFrame() {
         button.size = Dimension(100, 20)
         button.alignmentX = Component.CENTER_ALIGNMENT
         button.font = Font("SansSerif", Font.PLAIN, 14)
-        button.addActionListener({
-            println(textField.text)
-        })
+        button.addActionListener {
+            MainFrame(textField.text)
+            dispose()
+        }
 
         contentPane.add(Box.createRigidArea(Dimension(0, 5)))
-        add(label)
+        contentPane.add(label)
         contentPane.add(Box.createRigidArea(Dimension(0, 5)))
-        add(textField)
+        contentPane.add(textField)
         contentPane.add(Box.createRigidArea(Dimension(0, 5)))
-        add(button)
+        contentPane.add(button)
         contentPane.add(Box.createRigidArea(Dimension(0, 5)))
     }
 }
