@@ -10,10 +10,7 @@ import org.json.simple.parser.JSONParser
 import java.awt.*
 import java.io.StringWriter
 import java.net.URL
-import javax.swing.ImageIcon
-import javax.swing.JFrame
-import javax.swing.JLabel
-import javax.swing.JPanel
+import javax.swing.*
 
 
 class MainFrame(accessToken: String) : JFrame() {

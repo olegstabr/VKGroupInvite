@@ -8,12 +8,16 @@ import javax.swing.JLabel
 class LabelHoverAdapter : MouseAdapter() {
 
     override fun mouseEntered(e: MouseEvent) {
-        val lbl = e.getComponent() as JLabel
-        lbl.foreground = Color(255, 127, 80)
+        val component = e.component
+        if (component is JLabel) {
+            component.foreground = Color(255, 127, 80)
+        }
     }
 
     override fun mouseExited(e: MouseEvent) {
-        val lbl = e.getComponent() as JLabel
-        lbl.foreground = Color.BLACK
+        val component = e.component
+        if (component is JLabel) {
+            component.foreground = Color.BLACK
+        }
     }
 }
