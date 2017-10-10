@@ -11,8 +11,8 @@ class TokenFrame : JFrame() {
     private val button = JButton()
 
     init {
-
-        size = Dimension(500, 100)
+        title = "Авторизация"
+        size = Dimension(500, 120)
         defaultCloseOperation = JFrame.EXIT_ON_CLOSE
         layout = BoxLayout(contentPane, BoxLayout.Y_AXIS)
         setLocationRelativeTo(null)
