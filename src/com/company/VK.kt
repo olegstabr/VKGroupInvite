@@ -5,14 +5,13 @@ import java.net.URI
 
 
 class VK {
-    val APP_ID = 6200317
-    val DISPLAY = "mobile"
-    val REDIRECT_URI = "https://oauth.vk.com/blank.html"
-    val PERMISSIONS = "groups,friends"
-    val API_VERSION = "5.68"
+    private val APP_ID = 6200317
+    private val DISPLAY = "mobile"
+    private val REDIRECT_URI = "https://oauth.vk.com/blank.html"
+    private val PERMISSIONS = "groups,friends"
+    private val API_VERSION = "5.68"
 
-    var authorizeString = String()
-    var accessToken = String()
+    private var authorizeString = String()
 
     init {
         authorizeString = "https://oauth.vk.com/authorize?client_id=$APP_ID&" +
