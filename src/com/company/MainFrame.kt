@@ -15,8 +15,11 @@ import javax.swing.*
 
 class MainFrame(accessToken: String) : JFrame() {
     private var panel: JPanel? = null
+    private var publicId = 80923473
+    private var accessToken: String = String()
     private var getFriendsQuery = "https://api.vk.com/method/friends.get?access_token=$accessToken"
     private var getUserInfoQuery = "https://api.vk.com/method/users.get?user_ids=*&fields=photo_50&access_token=$accessToken"
+    private var groupInviteQuery = "https://api.vk.com/method/groups.invite?group_id=$publicId&user_id=*&access_token=$accessToken"
 
 
     private val httpClient = HttpClientBuilder.create().build()
@@ -34,6 +37,7 @@ class MainFrame(accessToken: String) : JFrame() {
         setLocationRelativeTo(null)
         isVisible = true
 
+        this.accessToken = accessToken
         executeQuery()
     }
 
@@ -56,9 +60,9 @@ class MainFrame(accessToken: String) : JFrame() {
         getUsersInfo(jsonArray)
     }
 
-    private fun getUsersInfo(jsonArray: JSONArray) {
+    private fun getUsersInfo(users: JSONArray) {
         val content = StringWriter()
-        val userIds = jsonArray.toString().replace("[", "").replace("]", "")
+        val userIds = users.toString().replace("[", "").replace("]", "")
         getUserInfoQuery = getUserInfoQuery.replace("*", userIds)
 
         httpPost = HttpPost(getUserInfoQuery)
@@ -86,7 +90,7 @@ class MainFrame(accessToken: String) : JFrame() {
                 label.icon = ImageIcon(URL(obj["photo_50"].toString()), obj["first_name"].toString())
                 label.text = name
                 label.cursor = Cursor.getPredefinedCursor(Cursor.HAND_CURSOR)
-                label.addMouseListener(LabelHoverAdapter())
+                label.addMouseListener(LabelHoverAdapter(accessToken, obj["uid"].toString()))
 
                 panel?.add(label)
             }
