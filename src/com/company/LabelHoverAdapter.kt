@@ -53,7 +53,7 @@ class LabelHoverAdapter(accessToken: String, userId: String) : MouseAdapter() {
                 return
             }
 
-            IOUtils.copy(httpResponse?.entity?.content, content)
+            IOUtils.copy(httpResponse.entity?.content, content)
 
             val jsonObject = jsonParser.parse(content.toString()) as JSONObject
             if (jsonObject["error"] != null) {
