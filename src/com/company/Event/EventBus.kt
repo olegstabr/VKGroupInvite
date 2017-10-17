@@ -1,4 +1,4 @@
-package com.company
+package com.company.Event
 
 class EventBus private constructor(){
     private val events = mutableListOf<Event>()
@@ -31,5 +31,4 @@ class EventBus private constructor(){
     companion object {
         val instance: EventBus by lazy { holder.INSTANCE }
     }
-
 }
